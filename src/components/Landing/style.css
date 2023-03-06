@@ -1,0 +1,346 @@
+.container{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(51, 59, 87);
+}
+.landincontaincenter{
+  display: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.banneanasiinto{
+  display: none;
+  width: 100%;
+  height: 50%;
+  background: #031021 url('../img/artistrecord.png');
+  transform: scaleX(-1);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+}
+.bannermusicaltitle{
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(-1);
+}
+.musicaltitle{
+  display: none;
+  width: 100%;
+  height: 50%;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 30px;
+  align-items:end;
+  color: aliceblue;
+  font-size: 74px;
+  font-family:'Helvetica Neue', sans-serif;
+}
+.subtitlemusical{
+  display: none;
+  color: rgba(240, 248, 255, 0.668);
+  font-size: 14px;
+  margin-left: 30px;
+  margin-right: 30px;
+
+}
+.musicaltext{
+  display: none;
+  width: 100%;
+  height: 50%;
+  font-size: 16px;
+  color: rgba(240, 248, 255, 0.615);
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  text-align: start;
+}
+.dicscrolllanding{
+  display: none;
+}
+.musicaltextsubti{
+  display: none;
+}
+.landincontaincenter,
+Footer{
+  display: none;
+}
+.imagelandingback{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: url('../img/artistrecord.png') 
+  no-repeat, center center fixed ;
+  filter: blur(1px) saturate(30%);
+  background-size:cover;
+  background-position: -300px;
+}
+.textlandininitial{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 180px;
+  font-size: 28px;
+  color: aliceblue;
+  background: linear-gradient(1deg, rgb(19, 19, 19),rgba(19, 19, 19, 0.862), hsla(273, 48%, 37%, 0.251));
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  position: absolute;
+}
+
+
+@media(min-width:768px){
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    width: 100%;
+    height: 100vh;
+    background-color: #232A40;
+  }
+  .container::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: transparent;
+  }
+  .dicscrolllanding{
+    display: flex;
+  }
+  .landincontaincenter{
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    width: 100%;
+    max-width: 1024px;
+    height: auto;
+    background-color: #0528d6;
+  }
+  .banneanasiinto{
+    display: flex;
+    width: 100%;
+    height: 40%;
+    max-height: 300px;
+    background: #031021 url('../img/artistrecord.png');
+    transform: scaleX(-1);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    box-shadow: -2px 2px 6px 4px rgba(23, 23, 23, 0.416);
+  }
+  .bannermusicaltitle{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(-1);
+  }
+  .musicaltitle{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 30px;
+    align-items:end;
+    color: aliceblue;
+    font-size: 74px;
+    font-family:'Helvetica Neue', sans-serif;
+  }
+  .subtitlemusical{
+    color: rgba(240, 248, 255, 0.668);
+    font-size: 14px;
+    margin-left: 30px;
+    margin-right: 30px;
+  
+  }
+  .musicaltext{
+    display: flex;
+    width: 80%;
+    height: 36vh;
+    font-size: 16px;
+    color: rgba(240, 248, 255, 0.615);
+    text-align: start;
+  }
+  .musicaltextsubti{
+    display: flex;
+    width: 80%;
+    height: auto;
+    font-size: 16px;
+    color: rgba(240, 248, 255, 0.615);
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 42px;
+  }
+  .titlelanding{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #ffffffdf;
+    margin-bottom: 6px;
+  }
+  .divexplaned{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1200px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    margin-top: 20px;
+    background-color: #30395700;
+  }
+  .bannerexplanedone{
+    display: flex;
+    width: 94%;
+    height: 300px;
+    margin-top: 30px;
+    background-color: aqua;
+  }
+  .imgbanners{
+    display: flex;
+    width: 100%;
+    
+  }
+  .imagelandingback{
+    display: none;
+  }
+  .textlandininitial{
+   display: none;
+  }
+ }
+
+ @media(min-width:992px){
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    width: 100%;
+    height: 100vh;
+    background-color: #232A40;
+  }
+  .container::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: transparent;
+  }
+  .dicscrolllanding{
+    display: flex;
+  }
+  .landincontaincenter{
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    width: 100%;
+    max-width: 1024px;
+    height: auto;
+    background-color: #d605ac;
+  }
+  .banneanasiinto{
+    display: flex;
+    width: 100%;
+    height: 40%;
+    max-height: 300px;
+    background: #031021 url('../img/artistrecord.png');
+    transform: scaleX(-1);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    box-shadow: -2px 2px 6px 4px rgba(23, 23, 23, 0.416);
+  }
+  .bannermusicaltitle{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(-1);
+  }
+  .musicaltitle{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 30px;
+    align-items:end;
+    color: aliceblue;
+    font-size: 74px;
+    font-family:'Helvetica Neue', sans-serif;
+  }
+  .subtitlemusical{
+    color: rgba(240, 248, 255, 0.668);
+    font-size: 14px;
+    margin-left: 30px;
+    margin-right: 30px;
+  
+  }
+  .musicaltext{
+    display: flex;
+    width: 80%;
+    height: 36vh;
+    font-size: 16px;
+    color: rgba(240, 248, 255, 0.615);
+    text-align: start;
+  }
+  .musicaltextsubti{
+    display: flex;
+    width: 80%;
+    height: auto;
+    font-size: 16px;
+    color: rgba(240, 248, 255, 0.615);
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 42px;
+  }
+  .titlelanding{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #ffffffdf;
+    margin-bottom: 6px;
+  }
+  .divexplaned{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1200px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    margin-top: 20px;
+    background-color: #30395700;
+  }
+  .bannerexplanedone{
+    display: flex;
+    width: 94%;
+    height: 300px;
+    margin-top: 30px;
+    background-color: aqua;
+  }
+  .imgbanners{
+    display: flex;
+    width: 100%;
+  }
+  .imagelandingback{
+    display: none;
+  }
+ }

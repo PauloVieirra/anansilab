@@ -1,0 +1,311 @@
+.manusup{
+    display: flex;
+    width: 100%;
+    height: 6%;
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.09);
+    background-color: rgba(30, 35, 56, 0);
+    justify-content: center;
+    position: fixed; 
+    bottom: 0%;
+    z-index: 102;
+}
+.menuexterno{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 25%;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 100;
+    bottom: 0px;
+}
+
+.textbutonemail{
+    text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    color: #1B221B;
+}
+.textbutongoogle{
+    text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    color: #f3f3f3;
+}
+.textbutonswhoite{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(44, 44, 44, 0.712);
+}
+.btnbar{
+    display: flex;
+    width: auto;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin-left: 4px;
+    margin-right: 4px;
+    background-color: rgba(154, 31, 31, 0);
+}
+
+.textbtnbar{
+    display: flex;
+    width: 80%;
+    height: 80%;
+    font-size: 18px;
+    text-decoration: none;
+}
+.divterm{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 40px;
+    text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: #f3f3f3;
+}
+.navigatextrn{
+    display: flex;
+    width: 100%;
+}
+.logscreen{
+    display: none;
+    width: 100%;
+    height: auto;
+    margin-left: 30px;
+}
+.navegscreen{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    
+}
+.btnexterno{
+    color: #f3f3f3;
+    width: auto;
+    height: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.musicalbtns{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    position: absolute;
+    background-color: #e2c23200;
+}
+.musicalbtnsmobi{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    position: absolute;
+    background-color: #e2c23200;
+}
+.btnselectmusical{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    background-color: #fafafa00;
+    border-color: rgba(240, 248, 255, 0);
+    text-decoration: none;
+    text-decoration-color: none;
+    text-decoration-style: none;
+    color: #f9f9f9;
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 8px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+.btnselectmusical:hover{
+    display: flex;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    background-color: #ffffff00;
+    text-decoration: none;
+    text-decoration-color: #2a2a2a00;
+    text-underline-offset: none;
+    color: #f0f0f0;
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 8px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.btnloginmusical{
+    display: flex;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    background-color: #ba65ff6a;
+    border-color: rgba(240, 248, 255, 0);
+    box-shadow:0px 4px #88888825;
+    text-decoration: none;
+    color: #eaeaea;
+    font-size: 14px;
+    padding: 8px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+.btnloginmusical:hover{
+    display: flex;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    text-decoration: none;
+    background-color: #ba65ff8b;
+    border-color: rgba(240, 248, 255, 0);
+    box-shadow:0px 4px #88888825;
+    color: #eaeaea;
+    font-size: 14px;
+    padding: 8px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+
+@media  (min-width: 768px) {
+    .manusup{
+        display: none;
+        width: 100%;
+        height: 40px;
+        background-color: rgb(30, 35, 56);
+        justify-content:end;
+        position: fixed;
+        z-index: 102;
+        top: 0px;
+    }
+    .menuexterno{
+        display: flex;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        z-index: 100;
+        top: 0px;
+        background-image: linear-gradient(180deg, #1E2338, #1E2338, #1E2338);
+        box-shadow: 2px 2px 8px 2px rgba(15, 15, 15, 0.631);
+    }
+    .space{
+        display: flex;
+        width: 30px;
+        height: 50px;
+        background-color: #e2c232;
+    }
+    .btnselectmusical{
+        display: flex;
+        border-radius: 30px;
+        align-items: center;
+        justify-content: center;
+        margin-right: 30px;
+        width: auto;
+        height: auto;
+        margin-top: 0px;
+        background-color: #fafafa1b;
+        border-color: rgba(240, 248, 255, 0);
+        color: #f9f9f9;
+        font-size: 12px;
+        padding: 8px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .btnselectmusical:hover{
+        display: flex;
+        border-radius: 30px;
+        align-items: center;
+        justify-content: center;
+        margin-right: 30px;
+        width: auto;
+        height: auto;
+        margin-top: 0px;
+        background-color: #ffffff;
+        border-color: rgba(240, 248, 255, 0.242);
+        color: #2a2a2a;
+        font-size: 12px;
+        padding: 8px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+  
+    .btnloginmusical{
+        display: flex;
+        border-radius: 30px;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        background-color: #ba65ff6a;
+        border-color: rgba(240, 248, 255, 0);
+        box-shadow:0px 4px #88888825;
+        color: #eaeaea;
+        font-size: 12px;
+        padding: 8px;
+        text-decoration: none;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .btnloginmusical:hover{
+        display: flex;
+        border-radius: 30px;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        background-color: #ba65ff8b;
+        border-color: rgba(240, 248, 255, 0);
+        box-shadow:0px 4px #88888825;
+        text-decoration: none;
+        color: #eaeaea;
+        font-size: 12px;
+        padding: 8px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .musicalbtns{
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        height: 100%;
+        align-items: center;
+        position: absolute;
+        right: 30px;
+        background-color: #e2c23200;
+    }
+    .musicalbtnsmobi{
+        display: none;
+    }
+    .logscreen{
+        display: flex;
+        width: 100%;
+        height: auto;
+        margin-left: 30px;
+    }
+}
+

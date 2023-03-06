@@ -1,0 +1,32 @@
+.divinputxs{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height: 120vh;
+}
+
+.carinpults{
+    display: flex;
+    justify-content: center;
+    margin-top:40px;
+    width: 100%;
+    height: 100%;
+    
+}
+.inputstyle{
+    display: flex;
+    min-width: 300px;
+    max-width: 360px;
+    width: 100%;
+    height: 30px;
+    margin: 6px;
+}
+
+.divbarratopup{
+    display: flex;
+    width: 100%;
+    height: 70px;
+    background-color: rgb(218, 23, 23);
+    top: 0px;
+   
+}
