@@ -3,15 +3,16 @@ import 'firebase/auth';
 import 'firebase/database';
 
 const config = {
-    apiKey: "AIzaSyDVAjMB7j7X9RxSWVB8hgt1zWcDXlamaVc",
-    authDomain: "drinks-bis.firebaseapp.com",
-    databaseURL: "https://drinks-bis-default-rtdb.firebaseio.com",
-    projectId: "drinks-bis",
-    storageBucket: "drinks-bis.appspot.com",
-    messagingSenderId: "510935611385",
-    appId: "1:510935611385:web:aa9dae650875751ecc2f28"
+  apiKey: "AIzaSyDBu2KvUcWm-7YUljp-B0CihO5tO6z-Z6k",
+  authDomain: "anansilab-7d31f.firebaseapp.com",
+  projectId: "anansilab-7d31f",
+  storageBucket: "anansilab-7d31f.appspot.com",
+  messagingSenderId: "569910682098",
+  appId: "1:569910682098:web:17e67b665381e515be0b6b"
 
 };
+
+
 
 
 

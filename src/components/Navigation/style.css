@@ -125,9 +125,6 @@
     height: auto;
     background-color: #fafafa00;
     border-color: rgba(240, 248, 255, 0);
-    text-decoration: none;
-    text-decoration-color: none;
-    text-decoration-style: none;
     color: #f9f9f9;
     font-size: 14px;
     margin-top: 20px;
@@ -160,16 +157,12 @@
     align-items: center;
     justify-content: center;
     width: auto;
-    height: auto;
-    background-color: #ba65ff6a;
+    height: 42px;
+    background-color: #e29608;
     border-color: rgba(240, 248, 255, 0);
     box-shadow:0px 4px #88888825;
-    text-decoration: none;
     color: #eaeaea;
-    font-size: 14px;
-    padding: 8px;
-    padding-left: 80px;
-    padding-right: 80px;
+    font-size: 16px;
 }
 .btnloginmusical:hover{
     display: flex;
@@ -179,14 +172,15 @@
     width: auto;
     height: auto;
     text-decoration: none;
-    background-color: #ba65ff8b;
+    background-color: #e29608;
     border-color: rgba(240, 248, 255, 0);
     box-shadow:0px 4px #88888825;
     color: #eaeaea;
     font-size: 14px;
-    padding: 8px;
-    padding-left: 80px;
-    padding-right: 80px;
+}
+.textlink {
+    color: '#fff';
+    text-decoration: none;
 }
 
 

@@ -87,13 +87,33 @@ Footer{
   align-items: center;
   text-align: center;
   padding-top: 180px;
-  font-size: 28px;
+  font-size: 20px;
   color: aliceblue;
   background: linear-gradient(1deg, rgb(19, 19, 19),rgba(19, 19, 19, 0.862), hsla(273, 48%, 37%, 0.251));
   width: 100%;
   height: 100vh;
   z-index: 10;
   position: absolute;
+}
+.anansilab {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  z-index: 80;
+  top: 30%;
+  animation: fadein 2s ease-in-out;
+  font-size: 30px;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -221,6 +241,7 @@ Footer{
   .textlandininitial{
    display: none;
   }
+
  }
 
  @media(min-width:992px){
@@ -249,7 +270,7 @@ Footer{
     width: 100%;
     max-width: 1024px;
     height: auto;
-    background-color: #d605ac;
+    background-color: #d605ac00;
   }
   .banneanasiinto{
     display: flex;
@@ -343,4 +364,5 @@ Footer{
   .imagelandingback{
     display: none;
   }
+
  }

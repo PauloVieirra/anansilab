@@ -11,14 +11,15 @@ export default function Landing() {
    <div className='container'>
    <div className='imagelandingback'/>
     <div className='textlandininitial'>
-    Enjoy the <br/>hottest music<br/>with us!
+      <div className='anansilab'><div>Anansi</div><div style={{color:'orange'}}>Lab</div></div>
+    Cante suas histórias <br/>seja nossa<br/>voz!
     </div>
     <div className='landincontaincenter'>
       
       
         <div className='banneanasiinto'>
          <div className='bannermusicaltitle'>
-          <div className='musicaltitle'>Anansi<div style={{color:'#FE7C38'}}>Lab</div></div>
+          <div className='musicaltitle'><div className='anansilab'>Anansi<div style={{color:'#FE7C38'}}>Lab</div></div></div>
           <div className='subtitlemusical'>Coletivo de produção, publicação e divulgação musical</div>
           <div className='musicaltext'>Bem-vindo a nossa rede, uma plataforme profissional para
            músicos, cantores,<br/> compositores, produtores, beat makers e outros profissionais da música.<br/>
@@ -27,7 +28,7 @@ export default function Landing() {
           </div>
          </div>
         </div>
-        <div className='titlelanding' style={{paddingLeft:'30px',marginTop:'32px'}}>Base e colaboradores</div>
+        <div className='titlelanding' style={{paddingLeft:'30px',marginTop:'32px'}}>Base de colaboradores</div>
         <div className='dicscrolllanding'><ScrollBar/></div>
         <div className='musicaltextsubti'>
         Bem-vindo a nossa rede, uma plataforme profissional para músicos, cantores,
