@@ -28,11 +28,7 @@ const INITIAL_STATE = {
 const ERROR_CODE_ACCOUNT_EXISTS = 'auth/email-already-in-use';
 
 const ERROR_MSG_ACCOUNT_EXISTS = `
-  An account with this E-Mail address already exists.
-  Try to login with this account instead. If you think the
-  account is already used from one of the social logins, try
-  to sign in with one of them. Afterward, associate your accounts
-  on your personal account page.
+  Ja existe uma conta que usa esse email.
 `;
 
 class SignUpFormBase extends Component {
@@ -43,7 +39,7 @@ class SignUpFormBase extends Component {
   }
 
   onSubmit = event => {
-    const { username,mediaone,mediathow, mediatree,mediafour, secondname, ano, estatura, nomemae,nomepai,posicao,telefone,img, email, passwordOne, isAdmin,estudos, idioma } = this.state;
+    const { username, secondname,telefone, email, passwordOne, isAdmin} = this.state;
     const roles = {};
 
     if (isAdmin) {
@@ -56,21 +52,9 @@ class SignUpFormBase extends Component {
         // Create a user in your Firebase realtime database
         return this.props.firebase.user(authUser.user.uid).set({
           username,
-          mediaone,
-          mediathow,
-          mediatree,
-          mediafour,
           secondname,
-          ano,
           email,
-          estatura,
-          nomemae,
-          nomepai,
-          posicao,
           telefone,
-          img,
-          estudos,
-          idioma,
           roles,
         });
       })
@@ -103,21 +87,9 @@ class SignUpFormBase extends Component {
   render() {
     const {
       username,
-      mediaone,
-      mediathow,
-      mediatree,
-      mediafour,
       secondname,
       email,
-      estatura,
-      ano,
-      nomemae,
-      nomepai,
-      posicao,
       telefone,
-      img,
-      estudos,
-      idioma,
       passwordOne,
       passwordTwo,
       isAdmin,
@@ -127,22 +99,9 @@ class SignUpFormBase extends Component {
     const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === '' ||
-      estatura === '' ||
-      ano === '' ||
-      nomemae === '' ||
-      nomepai === '' ||
-      posicao === '' ||
       telefone === '' ||
-      img === '' ||
-      estudos === '' ||
-      idioma === '' ||
       email === '' ||
-      mediaone === '' ||
-      mediathow === '' ||
-      mediatree === '' ||
-      mediafour === '' ||
       secondname === '' ||
-      
       username === '';
 
 
@@ -174,96 +133,12 @@ class SignUpFormBase extends Component {
           type="email"
           placeholder="Email Address"
         />
-         <input className='inputstyle'
-          name="estatura"
-          value={estatura}
-          onChange={this.onChange}
-          type="number"
-          placeholder="Estatura"
-        />
-        <input className='inputstyle'
-          name="ano"
-          value={ano}
-          onChange={this.onChange}
-          type="date"
-          placeholder="Nascimento"
-        />
-        <input className='inputstyle'
-          name="nomemae"
-          value={nomemae}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Nome da mae"
-        />
-        <input className='inputstyle'
-          name="nomepai"
-          value={nomepai}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Nome do pai"
-        />
-        <input className='inputstyle'
-          name="posicao"
-          value={posicao}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Posicao"
-        />
         <input className='inputstyle'
           name="telefone"
           value={telefone}
           onChange={this.onChange}
           type="phone"
           placeholder="Telefone"
-        />
-        <input className='inputstyle'
-          name="img"
-          value={img}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Link da imagem"
-        />
-          <input className='inputstyle'
-          name="mediaone"
-          value={mediaone}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Link Video 1"
-        />
-         <input className='inputstyle'
-          name="mediathow"
-          value={mediathow}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Link Video 2"
-        />
-         <input className='inputstyle'
-          name="mediatree"
-          value={mediatree}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Link Video 3"
-        />
-         <input className='inputstyle'
-          name="mediafour"
-          value={mediafour}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Link Video 4"
-        />
-        <input className='inputstyle'
-          name="estudos"
-          value={estudos}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Estudos"
-        />
-        <input className='inputstyle'
-          name="idioma"
-          value={idioma}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Idioma"
         />
         <input className='inputstyle'
           name="passwordOne"
