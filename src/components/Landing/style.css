@@ -102,7 +102,7 @@ Footer{
   z-index: 80;
   top: 30%;
   animation: fadein 2s ease-in-out;
-  font-size: 30px;
+  font-size: 38px;
 }
 
 @keyframes fadein {

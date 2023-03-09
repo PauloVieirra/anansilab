@@ -12,7 +12,7 @@ export default function Landing() {
    <div className='imagelandingback'/>
     <div className='textlandininitial'>
       <div className='anansilab'><div>Anansi</div><div style={{color:'orange'}}>Lab</div></div>
-    Cante suas histórias <br/>seja nossa<br/>voz!
+   
     </div>
     <div className='landincontaincenter'>
       

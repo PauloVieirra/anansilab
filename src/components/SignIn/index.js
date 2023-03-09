@@ -17,7 +17,7 @@ const SignInPage = () => (
     </div>
     <div className='divsupsignin'>
     <div className='divtoplog'>
-        <div className='divimglogin'> <img src={logo} className='imglogo'/> </div>
+       
     </div>
       <div className='divsquarlogin'>
       <SignInForm />

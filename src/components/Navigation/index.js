@@ -51,7 +51,7 @@ const NavigationNonAuth = () => (
     </div>
     </div>
     <div className='musicalbtns'>
-      <button className='btnselectmusical'><Link to={ROUTES.SIGN_IN}style={{backgroundColor:'#fff', textDecoration: 'none', color: 'white',paddingTop:"20px" }}>Inscreva-se </Link> </button>
+      <button className='btnselectmusical'><Link to={ROUTES.SIGN_UP}style={{backgroundColor:'#fff', textDecoration: 'none', color: 'white',paddingTop:"20px" }}>Inscreva-se </Link> </button>
       <button className='btnloginmusical'><Link to={ROUTES.SIGN_IN} style={{ textDecoration: 'none', color: 'white' }}> Entrar </Link> </button>
     </div>
     <div className='musicalbtnsmobi'>
@@ -59,7 +59,7 @@ const NavigationNonAuth = () => (
       <button className='btnloginmusical'> 
       <Link to={ROUTES.SIGN_IN} style={{display:"flex",width:'200px',height:'100%',alignItems:'center',justifyContent:'center', textDecoration: 'none', color: 'white' }}> Entrar </Link> </button>
       <button className='btnselectmusical'> 
-      <Link to={ROUTES.SIGN_IN}style={{ textDecoration: 'none', color: 'white' }}> Não tem uma conta? Inscreva-se </Link> </button>
+      <Link to={ROUTES.SIGN_UP}style={{ textDecoration: 'none', color: 'white' }}> Não tem uma conta? Inscreva-se </Link> </button>
     </div>
   </div>
   

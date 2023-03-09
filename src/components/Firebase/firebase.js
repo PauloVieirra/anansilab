@@ -1,6 +1,9 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+import 'firebase/storage';
+
+
 
 const config = {
   apiKey: "AIzaSyDBu2KvUcWm-7YUljp-B0CihO5tO6z-Z6k",
@@ -15,8 +18,11 @@ const config = {
 
 
 
-
 class Firebase {
+
+
+
+
   constructor() {
     app.initializeApp(config);
 
@@ -103,11 +109,16 @@ class Firebase {
 
   users = () => this.db.ref('users');
 
+  users = () => this.storage.ref('users');
+
   // *** Message API ***
 
   message = uid => this.db.ref(`messages/${uid}`);
 
   messages = () => this.db.ref('messages');
+
+  
+
 }
 
 export default Firebase;

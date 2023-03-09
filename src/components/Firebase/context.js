@@ -1,6 +1,8 @@
 import React from 'react';
 import 'firebase/auth';
 import 'firebase/database';
+import 'firebase/storage';
+
 
 const FirebaseContext = React.createContext(null);
 
