@@ -1,0 +1,120 @@
+.divinputxs{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height: 120vh;
+}
+
+.carinpults{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 60px;
+    background-color: rgb(51, 59, 87);
+    position: absolute;
+    z-index: 120;
+    top: 0px;
+
+    
+}
+.inputstyle{
+    display: flex;
+    min-width: 300px;
+    max-width: 360px;
+    width: 100%;
+    height: 30px;
+    margin: 6px; 
+}
+
+.divbarratopup{
+    display: flex;
+    position: absolute;
+    z-index: 122;
+    width: 100%;
+    height: 70px;
+    top: 0px;
+}
+.imputdiv{
+    display: flex;
+    width: 90%;
+    height: 42px;
+    margin-top: 28px;
+}
+.inputup{
+width: 100%;
+height: 42px;
+border-radius: 6px;
+border-style: none;
+background-color: rgba(80, 111, 137, 0.532);
+font-size: 14px;
+color: aliceblue;
+padding-left: 8px;
+}
+.inputup:focus, input:focus {
+    width: 100%;
+    height: 42px;
+    border-radius: 6px;
+    border-style: none;
+    background-color: rgba(241, 242, 244, 0.937);
+    font-size: 14px;
+    color: rgb(67, 67, 67);
+    box-shadow: 0 0 0 0;
+    outline: 0;
+ }
+.btnregister{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 42px;
+    padding-bottom: 60px;
+    position: absolute;
+    z-index: 122;
+    bottom: 30px;
+}
+.btnup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border-style: none;
+    width: 90%;
+    height: 42px;
+    background-color: rgb(231, 148, 39);
+    font-size: 20px;
+    color: aliceblue;
+}
+.removerbox{
+    display: flex;
+    opacity: 0.0;
+}
+.divimguploud{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 200px;
+}
+.imgcad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 80px;
+    background-color: rgb(240, 248, 255);
+}
+.namecadtop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 42px;
+    margin-top: 20px;
+    flex-direction: row;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(242, 242, 242);
+}

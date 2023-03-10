@@ -1,22 +1,15 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { compose } from 'recompose';
-import './style.css';
 import { BsArrowLeft } from "react-icons/bs";
+import { compose } from 'recompose';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
-
-
-
-
-
-
-
-
-
-
-
+import firebase from 'firebase/app';
+import 'firebase/database';
+import 'firebase/storage';
+import 'firebase/auth';
+import './style.css';
 
 const SignUpPage = () => (
   <div>
@@ -24,63 +17,84 @@ const SignUpPage = () => (
   </div>
 );
 
-
-
-
 const INITIAL_STATE = {
+  image: null,
+  url: '',
+  progress: 0,
   username: '',
+  secondname: '',
   email: '',
   passwordOne: '',
   passwordTwo: '',
+  telefone: '',
   isAdmin: false,
-  image:null,
+  imageID: '',
   error: null,
 };
 
-
-
-
-
-
-
-
 const ERROR_CODE_ACCOUNT_EXISTS = 'auth/email-already-in-use';
-
-
-const ERROR_MSG_ACCOUNT_EXISTS = `
-  Ja existe uma conta que usa esse email.
-`;
-
+const ERROR_MSG_ACCOUNT_EXISTS = 'Já existe uma conta que usa esse email.';
 
 class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
-
-
     this.state = { ...INITIAL_STATE };
+    this.storage = firebase.storage();
+    this.database = firebase.database();
   }
 
+  handleChange = e => {
+    if (e.target.files[0]) {
+      const image = e.target.files[0];
+      this.setState({ image });
+    }
+  };
 
+  handleUpload = () => {
+    const { image } = this.state;
+    const uploadTask = this.storage.ref(`images/${image.name}`).put(image);
+    uploadTask.on(
+      'state_changed',
+         snapshot => {
+    const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        this.setState({ progress });
+      },
+      error => {
+        console.log(error);
+      },
+      () => {
+        this.storage
+          .ref('images')
+          .child(image.name)
+          .getDownloadURL()
+          .then(url => {
+            const imageID = url.split('?')[0].split('/').slice(-1)[0];
+            this.setState({ url, imageID });
+          });
+      }
+    );
+  };
+  
   onSubmit = event => {
-    const { username, secondname,telefone, email, passwordOne, isAdmin} = this.state;
-    const roles = {};
-
-
+    if (event) {
+      event.preventDefault();
+    }
+     const { username, secondname, email, telefone, imageID, passwordOne, isAdmin,url } = this.state;
+     const roles = {};
     if (isAdmin) {
       roles[ROLES.ADMIN] = ROLES.ADMIN;
     }
-
-
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        // Create a user in your Firebase realtime database
         return this.props.firebase.user(authUser.user.uid).set({
           username,
           secondname,
           email,
-          telefone,
           roles,
+          url,
+          telefone,
+          imageID,
         });
       })
       .then(() => {
@@ -91,27 +105,30 @@ class SignUpFormBase extends Component {
         if (error.code === ERROR_CODE_ACCOUNT_EXISTS) {
           error.message = ERROR_MSG_ACCOUNT_EXISTS;
         }
-
-
         this.setState({ error });
       });
-
-
-    event.preventDefault();
   };
-
-
 
   onChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-
   onChangeCheckbox = event => {
     this.setState({ [event.target.name]: event.target.checked });
   };
 
- 
+  isFormInvalid = () => {
+    const { passwordOne, passwordTwo, telefone, email, secondname, username } = this.state;
+    return (
+      passwordOne !== passwordTwo ||
+      passwordOne === '' ||
+      telefone === '' ||
+      email === '' ||
+      secondname === '' ||
+      username === ''
+    );
+  };
+
   render() {
     const {
       username,
@@ -124,7 +141,6 @@ class SignUpFormBase extends Component {
       error,
     } = this.state;
 
-
     const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === '' ||
@@ -133,9 +149,6 @@ class SignUpFormBase extends Component {
       secondname === '' ||
       username === '';
 
-
-
-
     return (
       <div className='divinputxs'>
         <div className='divbarratopup'>
@@ -143,17 +156,46 @@ class SignUpFormBase extends Component {
            <div style={{display:'flex',width:'48px',marginLeft:'12px', height:"100%", justifyContent:'center', alignItems:'center', fontSize:'24px'}}> <BsArrowLeft/> </div>
            </Link>
             <div></div>
-        </div >
-        <div>
+           </div >
+      <div>
          <form className='carinpults' onSubmit={this.onSubmit}>  
-         <div className='divimguploud'> 
+       <div className='divimguploud'> 
 
-              <div className='namecadtop'>
+       <div className="center">
+      
+      <br/>
+      <div className="row">
+      <progress value={this.state.progress} max="100" className="progress" />
+      </div>
+      <div className="file-field input-field">
+      <div className="btn">
+      <span>File</span>
+      <input type="file" onChange={this.handleChange} />
+      </div>
+      <div className="file-path-wrapper">
+      <input className="file-path validate" type="text" />
+      </div>
+      </div>
+      <button
+             onClick={this.handleUpload}
+             className="waves-effect waves-light btn"
+           >
+      Upload
+      </button>
+      <br />
+      <br />
+      <img
+      src={this.state.url || "https://via.placeholder.com/400x300"}
+      alt="Uploaded Images"
+      height="100"
+      width="100"
+      />  </div>
+        <div className='namecadtop'>
               {username} {secondname}
              </div>
          </div>
+
         <div className='imputdiv'>
-      
         <input className='inputup'
           name="username"
           value={username}
@@ -162,6 +204,7 @@ class SignUpFormBase extends Component {
           placeholder="Full Name"
         />
         </div>
+
         <div className='imputdiv'>
          <input className='inputup'
           name="secondname"
@@ -171,6 +214,7 @@ class SignUpFormBase extends Component {
           placeholder="secondname"
         />
         </div>
+
         <div className='imputdiv'>
         <input className='inputup'
           name="email"
@@ -180,6 +224,7 @@ class SignUpFormBase extends Component {
           placeholder="Email Address"
         />
         </div>
+
         <div className='imputdiv'>
         <input className='inputup'
           name="telefone"
@@ -189,6 +234,7 @@ class SignUpFormBase extends Component {
           placeholder="Telefone"
         />
         </div>
+
         <div className='imputdiv'>
         <input className='inputup'
           name="passwordOne"
@@ -196,8 +242,10 @@ class SignUpFormBase extends Component {
           onChange={this.onChange}
           type="password"
           placeholder="Password"
-        /></div>
-          <div className='imputdiv'>
+        />
+        </div>
+
+        <div className='imputdiv'>
         <input className='inputup'
           name="passwordTwo"
           value={passwordTwo}
@@ -206,16 +254,14 @@ class SignUpFormBase extends Component {
           placeholder="Confirm Password"
         />
         </div>
-          <div className='btnregister'>
+
+        <div className='btnregister'>
         <button className='btnup'  disabled={isInvalid} type="submit">
           Cadastrar
         </button>
         </div>
        
         {error && <p>{error.message}</p>}
-
-
-
 
         <div className='check'>
          
@@ -226,17 +272,12 @@ class SignUpFormBase extends Component {
             onChange={this.onChangeCheckbox}
           />
         </div>
-
-
-       
       </form>
       </div>
       </div>
-     
     );
   }
 }
-
 
 const SignUpLink = () => (
   <p>
@@ -244,15 +285,12 @@ const SignUpLink = () => (
   </p>
 );
 
-
 const SignUpForm = compose(
   withRouter,
   withFirebase,
 )(SignUpFormBase);
 
-
 export default SignUpPage;
-
 
 export { SignUpForm, SignUpLink };
 

@@ -35,15 +35,22 @@ const SIGN_IN_METHODS = [
 
 
 const AccountPage = () => (
-  <AuthUserContext.Consumer>
-    {authUser => (
-      <div className='geralcont'>
-        
-       </div>
 
-    )}
-  </AuthUserContext.Consumer>
+  
+  
+  <AuthUserContext.Consumer>
+  {authUser => (
+    <div className='geralcont'>
+      {authUser.username}
+      {authUser.telefone}
+      {authUser.email}
+      <img src={authUser.url} className='imgplay'/> 
+    </div>
+    
+  )}
+</AuthUserContext.Consumer>
 );
+
 
 class LoginManagementBase extends Component {
   constructor(props) {
@@ -94,6 +101,7 @@ class LoginManagementBase extends Component {
       .catch(error => this.setState({ error }));
   };
 
+  
   render() {
     const { activeSignInMethods, error } = this.state;
 
