@@ -4,6 +4,12 @@ import { AuthUserContext } from '../Session';
 //import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
+import { IoHeadsetOutline } from "react-icons/io5";
+import { IoPersonCircleOutline } from "react-icons/io5";
+import { IoHomeOutline } from "react-icons/io5";
+import { IoGitBranchOutline } from "react-icons/io5";
+import { IoMicOutline } from "react-icons/io5";
+import imglogofios from "../img/logos-fios.png";
 import './style.css';
 
 
@@ -22,48 +28,60 @@ const Navigation = () => (
 const NavigationAuth = ({ authUser }) => (
   <>
     <div className='manusup'>
+     <div className='menurow'>
+
+       <button className='btnbar active'>
+          <Link to={ROUTES.HOME} className="a">
+          <IoHomeOutline className='iconbar'/>
+          <div className='textmenu'>Inicio</div>
+          </Link>
+        </button>
+     
+
       <button className='btnbar'>
-      <Link to={ROUTES.ACCOUNT} className='textbtnbar'>
-      <img src="https://img.icons8.com/pastel-glyph/64/null/gender-neutral-user.png"/>
+      <Link to={ROUTES.ACCOUNT} className="a">
+      <IoPersonCircleOutline className='iconbar'/>
+      <div className='textmenu'>Perfil</div>
+      </Link>
+      </button>
+      <button className='btnbar'>
+      <Link to={ROUTES.PUBLI} className="a">
+      <IoHeadsetOutline className='iconbar'/>
+        <div className='textmenu'>Postar</div></Link>
+      </button>
+      <button className='btnbar'>
+         <Link to={ROUTES.CONEXOES} className="a">
+         <IoGitBranchOutline className='iconbar'/>
+         <div className='textmenu'>Conexões</div>
+         </Link>
+      </button>
+
+      <button className='btnbar'>
+         <Link to={ROUTES.CONTA} className="a" >
+         <IoMicOutline className='iconbar'/>
+         <div className='textmenu'>Conta</div>
         </Link>
       </button>
+
     {!!authUser.roles[ROLES.ADMIN] && (
       <button className='btnbar'>
-        <Link to={ROUTES.ADMIN} className='textbtnbar'>
-        <img src="https://img.icons8.com/ios/50/null/mechanistic-analysis.png"/>
+        <Link to={ROUTES.ADMIN} className='a'>
+        <img className='iconbar' src="https://img.icons8.com/ios/50/null/mechanistic-analysis.png"/>
+        <div className='textmenu'>Conta</div>
         </Link>
       </button>
     )}
+    <div className='indicator'></div>
+    </div>
+   
    </div>
  </>
 );
 
 const NavigationNonAuth = () => (
-    <>
-  <div className='menuexterno'>
-    <div className='logscreen'>
-    <div className='navegscreen'>
-    <div className='btnexterno'> <Link to={ROUTES.LANDING} >Inicio</Link></div>
-      <div className='btnexterno'>Sobre</div>
-      <div className='btnexterno'>Parceiros</div>
-      <div className='btnexterno'>Cursos</div>
-      <div className='btnexterno'>Eventos</div>
-    </div>
-    </div>
-    <div className='musicalbtns'>
-      <button className='btnselectmusical'><Link to={ROUTES.SIGN_UP}style={{backgroundColor:'#fff', textDecoration: 'none', color: 'white',paddingTop:"20px" }}>Inscreva-se </Link> </button>
-      <button className='btnloginmusical'><Link to={ROUTES.SIGN_IN} style={{ textDecoration: 'none', color: 'white' }}> Entrar </Link> </button>
-    </div>
-    <div className='musicalbtnsmobi'>
-      
-      <button className='btnloginmusical'> 
-      <Link to={ROUTES.SIGN_IN} style={{display:"flex",width:'200px',height:'100%',alignItems:'center',justifyContent:'center', textDecoration: 'none', color: 'white' }}> Entrar </Link> </button>
-      <button className='btnselectmusical'> 
-      <Link to={ROUTES.SIGN_UP}style={{ textDecoration: 'none', color: 'white' }}> Não tem uma conta? Inscreva-se </Link> </button>
-    </div>
-  </div>
+ <>
   
-  </>
+ </>
 );
 
 export default Navigation;

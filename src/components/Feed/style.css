@@ -1,0 +1,71 @@
+.cont{
+    display: flex;
+    flex-direction:row;
+    width: 100%;
+    height:auto;
+    border-radius: 6px;
+    margin-left: 10%;
+    margin-top: 40px;
+    background-color: rgba(27, 24, 24, 0);
+}
+.feedplaygeral{
+    display: flex;
+    flex-direction:row;
+    width: 80%;
+    height:auto;
+    border-radius: 2px;
+    margin-left: 10%;
+    margin-top: 20px;
+    background-color: rgba(56, 48, 88, 0.577);
+}
+.imgfeed{
+    display: flex;
+    width: 120px;
+    height: 100%;
+    max-height: 130px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    box-shadow: 2px 0px 5px 0px rgba(255, 248, 220, 0.008);
+}
+
+
+.contcollum{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin-left: 20px;
+    max-height: 130px;
+    
+}
+.likedplay{
+    display: flex;
+    flex-direction: row;
+    width: 80px;
+    margin-bottom: 6px;
+}
+.likeButton{
+   display: flex;
+   width: 50px;
+   background-color: aqua;
+   
+}
+.feedtexteplay{
+    display: flex;
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 600;
+}
+.feedtextauthor{
+    display: flex;
+    color: rgba(240, 248, 255, 0.599);
+    font-size: 16px;
+    font-weight: 600;
+}
+.contfeed{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: bisque;
+}

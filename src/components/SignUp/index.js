@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component,useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { BsArrowLeft } from "react-icons/bs";
+import { AiFillMail,AiOutlineUser,AiOutlineMeh,AiOutlinePhone,AiFillSafetyCertificate } from "react-icons/ai";
 import { compose } from 'recompose';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
@@ -16,6 +17,8 @@ const SignUpPage = () => (
     <SignUpForm />
   </div>
 );
+
+
 
 const INITIAL_STATE = {
   image: null,
@@ -36,6 +39,12 @@ const ERROR_CODE_ACCOUNT_EXISTS = 'auth/email-already-in-use';
 const ERROR_MSG_ACCOUNT_EXISTS = 'Já existe uma conta que usa esse email.';
 
 class SignUpFormBase extends Component {
+
+  
+
+  
+
+
   constructor(props) {
     super(props);
     this.state = { ...INITIAL_STATE };
@@ -43,12 +52,18 @@ class SignUpFormBase extends Component {
     this.database = firebase.database();
   }
 
+
   handleChange = e => {
     if (e.target.files[0]) {
       const image = e.target.files[0];
-      this.setState({ image });
+      const imageUrl = URL.createObjectURL(image);
+      this.setState({ image, imageUrl });
     }
+
+
+    
   };
+  
 
   handleUpload = () => {
     const { image } = this.state;
@@ -79,7 +94,7 @@ class SignUpFormBase extends Component {
     if (event) {
       event.preventDefault();
     }
-     const { username, secondname, email, telefone, imageID, passwordOne, isAdmin,url } = this.state;
+     const { username, secondname, email, telefone, imageID, passwordOne, isAdmin} = this.state;
      const roles = {};
     if (isAdmin) {
       roles[ROLES.ADMIN] = ROLES.ADMIN;
@@ -92,7 +107,7 @@ class SignUpFormBase extends Component {
           secondname,
           email,
           roles,
-          url,
+          url:this.state.url,
           telefone,
           imageID,
         });
@@ -116,6 +131,7 @@ class SignUpFormBase extends Component {
   onChangeCheckbox = event => {
     this.setState({ [event.target.name]: event.target.checked });
   };
+  
 
   isFormInvalid = () => {
     const { passwordOne, passwordTwo, telefone, email, secondname, username } = this.state;
@@ -129,6 +145,14 @@ class SignUpFormBase extends Component {
     );
   };
 
+  fileInputRef = React.createRef();
+
+  handleImageClick = () => {
+    this.fileInputRef.current.click();
+  }
+
+  
+
   render() {
     const {
       username,
@@ -138,6 +162,7 @@ class SignUpFormBase extends Component {
       passwordOne,
       passwordTwo,
       isAdmin,
+      image,
       error,
     } = this.state;
 
@@ -152,80 +177,83 @@ class SignUpFormBase extends Component {
     return (
       <div className='divinputxs'>
         <div className='divbarratopup'>
-          <Link to={ROUTES.LANDING} style={{textDecoration: 'none', color: 'white' }} >
-           <div style={{display:'flex',width:'48px',marginLeft:'12px', height:"100%", justifyContent:'center', alignItems:'center', fontSize:'24px'}}> <BsArrowLeft/> </div>
-           </Link>
-            <div></div>
-           </div >
+        <Link to={ROUTES.LANDING} style={{textDecoration: 'none', color: 'white' }} >
+         <div style={{display:'flex',width:'48px',marginLeft:'12px', height:"100%", justifyContent:'center', alignItems:'center', fontSize:'24px'}}> <BsArrowLeft/> </div>
+         </Link>
+          <div>
+         </div>
+         </div >
       <div>
-         <form className='carinpults' onSubmit={this.onSubmit}>  
+   <form className='carinpults' onSubmit={this.onSubmit}>  
        <div className='divimguploud'> 
+    
 
-       <div className="center">
+      <div className="center_circle">
+      <React.Fragment>
+        <input type="file" style={{display:'none'}} id="image-upload-input" ref={this.fileInputRef} onChange={this.handleChange} />
+        <img
+          src={this.state.imageUrl || "https://st4.depositphotos.com/20838724/24118/v/450/depositphotos_241182048-stock-illustration-camera-simple-icon-vector-filled.jpg"}
+          alt="Uploaded Images"
+          className='progress-circle-img'
+          onClick={this.handleImageClick}
+        />
+
+      </React.Fragment>
+         
       
-      <br/>
-      <div className="row">
-      <progress value={this.state.progress} max="100" className="progress" />
+          <progress value={this.state.progress}  className="progress" />
+     </div>
+     <div className="constimg">
+     
+        {image &&
+        <button onClick={this.handleUpload}
+                        className="btnupload">
+                        Salvar
+                </button>
+        
+        }
       </div>
-      <div className="file-field input-field">
-      <div className="btn">
-      <span>File</span>
-      <input type="file" onChange={this.handleChange} />
-      </div>
-      <div className="file-path-wrapper">
-      <input className="file-path validate" type="text" />
-      </div>
-      </div>
-      <button
-             onClick={this.handleUpload}
-             className="waves-effect waves-light btn"
-           >
-      Upload
-      </button>
-      <br />
-      <br />
-      <img
-      src={this.state.url || "https://via.placeholder.com/400x300"}
-      alt="Uploaded Images"
-      height="100"
-      width="100"
-      />  </div>
-        <div className='namecadtop'>
+      
+          <div className='namecadtop'>
               {username} {secondname}
              </div>
          </div>
-
+         <div className='continputgeral'>
         <div className='imputdiv'>
+        <AiOutlineMeh className='iconinp'/>
         <input className='inputup'
           name="username"
           value={username}
           onChange={this.onChange}
           type="text"
-          placeholder="Full Name"
+          placeholder="Nome"
         />
         </div>
 
         <div className='imputdiv'>
+        <AiOutlineUser className='iconinp'/>
          <input className='inputup'
           name="secondname"
           value={secondname}
           onChange={this.onChange}
           type="text"
-          placeholder="secondname"
+          placeholder="Sobrenome"
         />
         </div>
 
         <div className='imputdiv'>
+          <AiFillMail className='iconinp'/>
         <input className='inputup'
           name="email"
           value={email}
           onChange={this.onChange}
           type="email"
-          placeholder="Email Address"
+          placeholder="Email"
         />
         </div>
 
         <div className='imputdiv'>
+        <AiOutlinePhone className='iconinp'/>
         <input className='inputup'
           name="telefone"
           value={telefone}
@@ -236,23 +264,26 @@ class SignUpFormBase extends Component {
         </div>
 
         <div className='imputdiv'>
+        <AiFillSafetyCertificate className='iconinp'/>
         <input className='inputup'
           name="passwordOne"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
-          placeholder="Password"
+          placeholder="Senha com 6 digitos"
         />
         </div>
 
         <div className='imputdiv'>
+        <AiFillSafetyCertificate className='iconinp'/>
         <input className='inputup'
           name="passwordTwo"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"
-          placeholder="Confirm Password"
+          placeholder="Confirme sua senha"
         />
+        </div>
         </div>
 
         <div className='btnregister'>

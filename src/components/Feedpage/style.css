@@ -1,0 +1,70 @@
+.contfeedplay{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(54, 49, 78);
+}
+.feedplaytop{
+    display: flex;
+    width: 100%;
+    height: 8%;
+    background-color: rgba(87, 52, 156, 0);
+}
+.feedplayimg{
+    display: flex;
+    width: 100%;
+    height: 26%;
+    padding-top: 20px;
+    align-items: start;
+    justify-content: center;
+    background-color: rgba(250, 235, 215, 0);
+  
+}
+.imgplayfeed{
+    width: 40%;
+    box-shadow: 2px 2px 4px 4px rgba(29, 29, 29, 0.49);
+}
+.feeddatatexts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    height: auto;
+    background-color: rgba(240, 248, 255, 0);
+}
+.feeddatatitle{
+    font-size: 30px;
+    color:azure;
+}
+.feeddataautor{
+    font-size: 16px;
+    color:azure;
+}
+.feeddataprod{
+    display: flex;
+    margin-top: 10px;
+    font-weight: 200;
+    color: rgba(240, 248, 255, 0.647);
+}
+.fontprod{
+   font-size: 16px;
+   font-weight: 600;
+   margin-left: 8px;
+}
+.feeddatadescription{
+    font-size: 16px;
+    color: rgba(240, 248, 255, 0.829);
+}
+
+.playerfedd{
+    display: flex;
+    position: absolute;
+    margin-left: 20px;
+    bottom: 20%;
+    width: 90%;
+    height: 10vh;
+    background-color: rgba(200, 37, 37, 0);
+}

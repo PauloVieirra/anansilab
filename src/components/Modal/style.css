@@ -5,6 +5,13 @@
     height: 120vh;
 }
 
+.cont{
+    display: flex;
+    width:100%;
+    background-color: rgb(30, 0, 255);
+    
+}
+
 .carinpults{
     display: flex;
     flex-direction: column;

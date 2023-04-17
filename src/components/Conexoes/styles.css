@@ -1,0 +1,7 @@
+.btnaddcity{
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    width: 200px;
+    height: 42px;
+}
